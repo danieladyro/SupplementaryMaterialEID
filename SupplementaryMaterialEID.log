@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.6.11)  3 MAR 2018 20:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.2.10)  4 MAR 2018 21:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**2017Reporte008_jointModelEIDSupplementary.tex
-(./2017Reporte008_jointModelEIDSupplementary.tex
+**SupplementaryMaterialEID.tex
+(./SupplementaryMaterialEID.tex
 LaTeX2e <2017-04-15>
 Babel <3.10> and hyphenation patterns for 84 language(s) loaded.
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/article.cls
@@ -564,8 +564,8 @@ Package: fancyhdr 2016/09/06 3.8 Extensive control of page headers and footers
 \f@ncyO@olf=\skip67
 \f@ncyO@orf=\skip68
 )
-(./2017Reporte008_jointModelEIDSupplementary.aux)
-\openout1 = `2017Reporte008_jointModelEIDSupplementary.aux'.
+(./SupplementaryMaterialEID.aux)
+\openout1 = `SupplementaryMaterialEID.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 112.
 LaTeX Font Info:    ... okay on input line 112.
@@ -633,10 +633,9 @@ LaTeX Info: Redefining \ref on input line 112.
 LaTeX Info: Redefining \pageref on input line 112.
 LaTeX Info: Redefining \nameref on input line 112.
 
-(./2017Reporte008_jointModelEIDSupplementary.out)
-(./2017Reporte008_jointModelEIDSupplementary.out)
+(./SupplementaryMaterialEID.out) (./SupplementaryMaterialEID.out)
 \@outlinefile=\write3
-\openout3 = `2017Reporte008_jointModelEIDSupplementary.out'.
+\openout3 = `SupplementaryMaterialEID.out'.
 
 LaTeX Info: Redefining \microtypecontext on input line 112.
 Package microtype Info: Generating PDF output.
@@ -707,22 +706,22 @@ AED: lastpage setting LastPage
 [10]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 400.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 400.
- (./2017Reporte008_jointModelEIDSupplementary.aux)
+ (./SupplementaryMaterialEID.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 400.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 400.
-Package rerunfilecheck Info: File `2017Reporte008_jointModelEIDSupplementary.ou
-t' has not changed.
+Package rerunfilecheck Info: File `SupplementaryMaterialEID.out' has not change
+d.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 400.
  ) 
 Here is how much of TeX's memory you used:
  11392 strings out of 492995
- 172906 string characters out of 6132689
- 315324 words of memory out of 5000000
+ 172685 string characters out of 6132689
+ 315273 words of memory out of 5000000
  14716 multiletter control sequences out of 15000+600000
  9211 words of font info for 43 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,19n,43p,529b,342s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,19n,43p,512b,342s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy
 7.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10
 .pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.
@@ -738,8 +737,7 @@ usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></us
 r/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/l
 ocal/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/lo
 cal/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on 2017Reporte008_jointModelEIDSupplementary.pdf (10 pages, 1612
-31 bytes).
+Output written on SupplementaryMaterialEID.pdf (10 pages, 161231 bytes).
 PDF statistics:
  143 PDF objects out of 1000 (max. 8388607)
  114 compressed objects within 2 object streams
