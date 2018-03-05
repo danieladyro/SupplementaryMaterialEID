@@ -1,0 +1,400 @@
+\documentclass[10pt,letterpaper]{article}
+%\usepackage[top=0.85in,left=2.75in,footskip=0.75in]{geometry}
+\usepackage[top=0.85in,left=0.85in,right=0.85in,footskip=0.75in]{geometry}
+
+% amsmath and amssymb packages, useful for mathematical formulas and symbols
+\usepackage{amsmath,amssymb}
+
+% Use adjustwidth environment to exceed column width (see example table in text)
+\usepackage{changepage}
+
+% Use Uni code characters when possible
+\usepackage[utf8x]{inputenc}
+
+% textcomp package and marvosym package for additional characters
+\usepackage{textcomp,marvosym}
+
+% cite package, to clean up citations in the main text. Do not remove.
+\usepackage{cite}
+
+% Use nameref to cite supporting information files (see Supporting Information section for more info)
+\usepackage{nameref,hyperref}
+
+% line numbers
+\usepackage[right]{lineno}
+
+% ligatures disabled
+\usepackage{microtype}
+\DisableLigatures[f]{encoding = *, family = * }
+
+% color can be used to apply background shading to table cells only
+\usepackage[table]{xcolor}
+
+% array package and thick rules for tables
+\usepackage{array}
+
+%tables in landscape form
+\usepackage{rotating}
+
+%centering colum names, but 
+\usepackage{makecell}
+
+\usepackage{subfigure}
+
+% create "+" rule type for thick vertical lines
+\newcolumntype{+}{!{\vrule width 2pt}}
+
+\usepackage{epstopdf} %converting to PDF
+% create \thickcline for thick horizontal lines of variable length
+\newlength\savedwidth
+\newcommand\thickcline[1]{%
+  \noalign{\global\savedwidth\arrayrulewidth\global\arrayrulewidth 2pt}%
+  \cline{#1}%
+  \noalign{\vskip\arrayrulewidth}%
+  \noalign{\global\arrayrulewidth\savedwidth}%
+}
+
+% \thickhline command for thick horizontal lines that span the table
+\newcommand\thickhline{\noalign{\global\savedwidth\arrayrulewidth\global\arrayrulewidth 2pt}%
+\hline
+\noalign{\global\arrayrulewidth\savedwidth}}
+
+
+% Remove comment for double spacing
+\usepackage{setspace} 
+\doublespacing
+
+% Text layout
+%\raggedright
+%\setlength{\parindent}{0.5cm}
+%\textwidth 5.25in 
+%\textheight 8.75in
+
+% Bold the 'Figure #' in the caption and separate it from the title/caption with a period
+
+\usepackage[aboveskip=1pt,labelfont=bf,labelsep=period,justification=raggedright,singlelinecheck=off]{caption}
+\renewcommand{\figurename}{Fig.}
+
+\makeatletter
+\renewcommand{\@biblabel}[1]{\quad#1.}
+\makeatother
+
+% Leave date blank
+\date{}
+
+% Header and Footer with logo
+\usepackage{lastpage,fancyhdr,graphicx}
+\usepackage{epstopdf}
+\pagestyle{myheadings}
+\pagestyle{fancy}
+\fancyhf{}
+\setlength{\headheight}{27.023pt}
+%\lhead{\includegraphics[width=2.0in]{PLOS-submission.eps}}
+\rfoot{\thepage/\pageref{LastPage}}
+\renewcommand{\footrule}{\hrule height 2pt \vspace{2mm}}
+\fancyheadoffset[L]{2.25in}
+\fancyfootoffset[L]{2.25in}
+%\lfoot{\sf PLOS}
+
+%% Include all macros below
+
+
+\renewcommand{\abstractname}{SUMMARY}
+
+\renewcommand\refname{REFERENCES}
+
+\renewenvironment{abstract}
+  {{\bfseries\noindent{\Large\abstractname}\par\nobreak\smallskip}}
+
+%% END MACROS SECTION
+
+
+\begin{document}
+\vspace*{0.2in}
+
+\begin{flushleft}
+{\Large
+\textbf\newline{SUPPLEMENTARY MATERIAL}
+\newline{Joint estimation of relative risk of dengue and Zika infections} 
+}
+\newline
+\\
+D.A. Mart\'{i}nez-Bello       \textsuperscript{1, *},
+A. L\'{o}pez-Qu\'{i}lez       \textsuperscript{1},
+A. Torres Prieto            \textsuperscript{2},
+
+
+\bigskip
+\textbf{1} Department of Statistics and Operations Research, Faculty of Mathematics, Universitat de Val\`{e}ncia, Val\`{e}ncia, Spain
+\\
+\textbf{2} Office of Demography and Epidemiology, Health Office, Department of Santander, Colombia
+\\
+\bigskip
+
+* Author for correspondence: D. Mart\'{i}nez-Bello, Department of Statistics and Operations Research, Faculty of Mathematics, Universitat de Val\`{e}ncia, C/ Dr. Moliner, 50, 46100 Burjassot, Val\`{e}ncia, Spain \\
+danieladyro@gmail.com
+
+\end{flushleft}
+
+%\linenumbers
+\newpage
+
+
+\section*{SUPPLEMENTARY MATERIAL}
+
+\setcounter{figure}{0}
+\renewcommand{\thefigure}{S\arabic{figure}}
+
+\setcounter{table}{0}
+\renewcommand{\thetable}{S\arabic{table}}
+
+Let us assume the observed counts $O_{ij}$ of dengue or Zika virus disease (ZVD) are Poisson distributed with mean parameter ($\mu_{ij}$) where $i$ is the aggregation area ($i=1,\dots, n$, and $n = 87$ municipalities at departmental level; or $n = 293$ census section for the municipal level), and $j$ is the disease ($j=1,\dots,p$, and $p = 1$ for ZVD, or $p = 2$ for dengue). 
+
+\begin{align*}
+O_{ij}         &\sim   \mbox{Poisson}(\mu_{ij})\\
+\mu_{ij}       &=    E_{ij} \times \mbox{r}_{ij}\\
+\mbox{r}_{ij}  &= \mbox{exp}(\lambda_{ij})
+\end{align*}
+
+Then, the mean parameter $\mu_{ij}$ is equal to the product of the expected values $E_{ij}$ and the relative risk $r_{ij}$, with linear predictor $\lambda_{ij}$. 
+The relative risk is the additive effect of spatially structured and unstructured random effects, and covariates.  Spatially structured random effects are unobserved variables recovering a clustered risk pattern, or the fact that the risk in one area is highly associated with the neighboring areas. The lack of spatial association is accounted by the spatially unstructured random effects\cite{Banerjee2014}. 
+
+\newpage
+
+\section*{Model 1}
+Model 1 contains independent and identically distributed (IID) Normal spatially unstructured random effects for every disease (dengue and ZVD). 
+
+\begin{align*}
+O_{ij}                 &\sim \mbox{Poisson}(\mu_{ij})\\
+\log(\mu_{ij})         &=    \log(E_{ij}) + \alpha_{j} + \phi_{ij}\\ 
+\boldsymbol{\phi}_{j}   &\sim \mbox{Normal}(\mathbf{0}, \sigma^{2}_{\phi_{j}}\mathbf{I})\\ 
+\alpha_{j}              &\sim \mbox{Normal}(0,1000)\\
+1/\sigma^{2}_{\phi_{j}} &\sim \mbox{Gamma}(0.01, 0.01)
+\end{align*}
+
+where $\boldsymbol{\phi}_{j}$ are spatially unstructured random effects, $\alpha_{j}$ are intercepts,  $\sigma^{2}_{\phi_{j}}$ are variance parameters of the $\boldsymbol{\phi}_{j}$, and $\mathbf{I}$ is $n \times n$ identity matrix.
+\newpage
+
+\section*{Model 2}
+Model 2 presents IID Normal spatially unstructured random effects linearly correlated for both diseases.
+
+\begin{align*}
+O_{ij}                    &\sim   \mbox{Poisson}(\mu_{ij})\\
+\log(\mu_{ij})            &=      \log(E_{ij}) + \alpha_{j} + \phi_{ij}\\ 
+\begin{bmatrix}
+\boldsymbol{\phi}_{1}\\
+\boldsymbol{\phi}_{2}
+\end{bmatrix}              &\sim   \mbox{Normal}(\boldsymbol{0}, \boldsymbol{\Sigma}\otimes \mathbf{I})\\
+\boldsymbol{\Sigma}        &= 
+\begin{bmatrix}
+\sigma^{2}_{1}             & \rho \sigma_{1} \sigma_{2}\\
+\rho \sigma_{1} \sigma_{2} & \sigma^{2}_{2}             
+\end{bmatrix}\\
+\boldsymbol{\Sigma^{-1}}   &\sim   \mbox{Wishart}(\mathbf{R_{2\times2}},2)\\
+\boldsymbol{R}             &= 
+\begin{bmatrix}
+1/5      &  0        \\
+0        &  1/5             
+\end{bmatrix}\\
+\alpha_{j}                 &\sim   \mbox{Normal}(0,1000)\\
+\end{align*}
+
+$\mathbf{\Sigma}$ is an $n \times n$ variance-covariance matrix accounting for the association of the spatially unstructured random effects $\boldsymbol{\phi}_{j}$, $\otimes$ corresponds to the Kronecker product, and the rest of the parameters similar to model 1.
+
+\newpage
+
+\section*{Model 3}
+Model 3 accommodates conditionally autoregressive (CAR) \cite{Besag1991} Normal spatially structured random effects for every disease.
+
+\begin{align*}
+O_{ij}         &\sim   \mbox{Poisson}(\mu_{ij})\\
+\log(\mu_{ij}) &=      \log(E_{ij}) + \alpha_{j} + \phi_{ij}\\ 
+\boldsymbol{\phi_{j}}    &\sim   \mbox{Normal}(\mathbf{0}, \sigma^{2}_{\phi_{j}}(\boldsymbol{D}-\boldsymbol{W})^{-1})\\ 
+\alpha_{j}    &\sim   \mbox{Normal}(0,1000)\\
+1/\sigma^{2}_{\phi_{j}} &\sim \mbox{Gamma}(0.01, 0.01)\\
+\boldsymbol{W}_{n \times n} &=
+\left\{
+\begin{array}{rl}
+w_{ij} = 1 & \mbox{if } i \sim j \\
+w_{ij} = 0 & \mbox{if } i = j    \\
+w_{ij} = 0 & \mbox{otherwise}   
+\end{array}
+\right.\\
+w_{i+}                      &=\sum_{j} w_{ij}\\
+\boldsymbol{D}_{n \times n} &=\mbox{diagonal}(w_{1+},\dots,w_{n+})\\
+\end{align*}
+
+where $\boldsymbol{\phi_{j}}$ are spatially structured random effects, with structure given by the proximity matrix $\boldsymbol{W}$, and variance parameters $\sigma^{2}_{\phi_{j}}$ 
+\newpage
+
+\section*{Model 4}
+Model 4 contains CAR Normal spatially structured random effects linearly correlated for both diseases. 
+
+\begin{align*}
+O_{ij}                 &\sim \mbox{Poisson}(\mu_{ij})\\
+\log(\mu_{ij})         &=    \log(E_{ij}) + \alpha_{j} + \phi_{ij}\\
+\begin{bmatrix}
+\boldsymbol{\phi_{1}}\\
+\boldsymbol{\phi_{2}}
+\end{bmatrix}           &\sim \mbox{Normal}(\mathbf{0}, \boldsymbol{\Sigma}\otimes(\boldsymbol{D}-\boldsymbol{W})^{-1})\\
+\boldsymbol{\Sigma}        &= 
+\begin{bmatrix}
+\sigma^{2}_{1}             & \rho \sigma_{1} \sigma_{2}\\
+\rho \sigma_{1} \sigma_{2} & \sigma^{2}_{2}             
+\end{bmatrix}\\
+\boldsymbol{\Sigma^{-1}} &\sim \mbox{Wishart}(\mathbf{R_{2\times2}},2)\\ 
+\boldsymbol{R}             &= 
+\begin{bmatrix}
+1/5      &  0        \\
+0        &  1/5             
+\end{bmatrix}\\
+\alpha_{j}              &\sim \mbox{Normal}(0,1000)\\
+\boldsymbol{W}_{n \times n} &=
+\left\{
+\begin{array}{rl}
+w_{ij} = 1 & \mbox{if } i \sim j \\
+w_{ij} = 0 & \mbox{if } i = j    \\
+w_{ij} = 0 & \mbox{otherwise}   
+\end{array}
+\right.\\
+w_{i+}                      &=\sum_{j} w_{ij}\\
+\boldsymbol{D}_{n \times n} &=\mbox{diagonal}(w_{1+},\dots,w_{n+})\\
+\end{align*}
+
+where $\boldsymbol{\phi_{j}}$ are spatially structured random effects, $\boldsymbol{\Sigma}$ is the variance-covariance matrix accounting the spatial association of the $\boldsymbol{\phi_{j}}$,  and proximity matrix $\boldsymbol{W}$.
+
+\newpage
+
+\section*{Model 5}
+Model 5 includes IID Normal spatially unstructured random effects for every disease with a CAR shared-parameter.
+
+\begin{align*}
+O_{ij}         &\sim   \mbox{Poisson}(\mu_{ij})\\
+\log(\mu_{i,1}) &=      \log(E_{i,1}) + \alpha_{1} + \psi_{i} \times \gamma + \phi_{i,1}\\
+\log(\mu_{i,2}) &=      \log(E_{i,2}) + \alpha_{2} + \psi_{i} / \gamma      + \phi_{i,2}\\
+\boldsymbol{\psi}    &\sim   \mbox{Normal}(\mathbf{0}, \sigma^{2}_{\psi}(\boldsymbol{D}-\boldsymbol{W})^{-1})\\ 
+\boldsymbol{\phi_{j}}        &\sim   \mbox{Normal}(\mathbf{0}, \sigma^{2}_{\phi_{j}}\mathbf{I})\\
+\alpha_{j}    &\sim   \mbox{Normal}(0,1000)\\
+\sigma_{\psi}     &\sim \mbox{Uniform}(0, 10)\\
+\sigma_{\phi_{j}} &\sim \mbox{Uniform}(0, 10)\\
+\gamma            &\sim   \mbox{Normal}(0,100)\\
+\boldsymbol{W}_{n \times n} &=
+\left\{
+\begin{array}{rl}
+w_{ij} = 1 & \mbox{if } i \sim j \\
+w_{ij} = 0 & \mbox{if } i = j    \\
+w_{ij} = 0 & \mbox{otherwise}   
+\end{array}
+\right.\\
+w_{i+}                      &=\sum_{j} w_{ij}\\
+\boldsymbol{D}_{n \times n} &=\mbox{diagonal}(w_{1+},\dots,w_{n+})\\
+\end{align*}
+
+$\boldsymbol{\psi}$ are the spatially structured shared-parameter components, $\gamma$ is a scaling parameter, $\boldsymbol{\phi_{j}}$ are spatially unstructured random effects, $\boldsymbol{W}$ is the proximity matrix, and $\sigma^{2}_{\phi_{j}}$, $\sigma^{2}_{\psi}$ are variance parameters for $\boldsymbol{\phi_{j}}$ and $\boldsymbol{\psi}$.
+
+
+\newpage
+
+\section*{Model 6}
+Model 6 includes CAR Normal spatially structured random effects for every disease with a CAR shared-parameter. 
+
+\begin{align*}
+O_{ij}           &\sim   \mbox{Poisson}(\mu_{ij})\\
+\log(\mu_{i,1}) &=      \log(E_{i,1}) + \alpha_{1} + \psi_{i} \times \gamma + \phi_{i,1}\\
+\log(\mu_{i,2}) &=      \log(E_{i,2}) + \alpha_{2} + \psi_{i} / \gamma      + \phi_{i,2}\\
+\boldsymbol{\psi} &\sim   \mbox{Normal}(\mathbf{0}, \sigma^{2}_{\psi}(\boldsymbol{D}-\boldsymbol{W})^{-1})\\ 
+\boldsymbol{\phi_{j}}     &\sim   \mbox{Normal}(\mathbf{0}, \sigma^{2}_{\phi_{j}}(\boldsymbol{D}-\boldsymbol{W})^{-1})\\
+\alpha_{j}        &\sim   \mbox{Normal}(0,1000)\\
+\sigma_{\psi}     &\sim   \mbox{Uniform}(0, 10)\\
+\sigma_{\phi_{j}} &\sim   \mbox{Uniform}(0, 10)\\
+\gamma            &\sim   \mbox{Normal}(0,100)\\
+\boldsymbol{W}_{n \times n} &=
+\left\{
+\begin{array}{rl}
+w_{ij} = 1 & \mbox{if } i \sim j \\
+w_{ij} = 0 & \mbox{if } i = j    \\
+w_{ij} = 0 & \mbox{otherwise}   
+\end{array}
+\right.\\
+w_{i+}                      &=\sum_{j} w_{ij}\\
+\boldsymbol{D}_{n \times n} &=\mbox{diagonal}(w_{1+},\dots,w_{n+})\\
+\end{align*}
+
+$\boldsymbol{\psi}$ are the spatially structured shared-parameter components, $\gamma$ is a scaling parameter, $\boldsymbol{\phi_{j}}$ are spatially structured random effects, $\boldsymbol{W}$ is the proximity matrix, and $\sigma^{2}_{\phi_{j}}$, $\sigma^{2}_{\psi}$ are variance parameters for $\boldsymbol{\phi_{j}}$ and $\boldsymbol{\psi}$.
+
+\newpage
+
+\section*{Models 7 and 8}
+Models 7 accommodates the Generalized Multivariate CAR model \cite{Jin2005}, where the CAR Normal spatially structured random effects of ZVD by small area are conditioned by the CAR Normal spatially structured random effects of dengue.  Model 8 presents the Generalized Multivariate CAR model \cite{Jin2005}, where the CAR Normal spatially structured random effects of dengue per area are conditioned by the CAR Normal spatially structured random effects of ZVD. 
+
+\begin{align*}
+O_{ij}                 &\sim   \mbox{Poisson}(\mu_{ij})\\
+\log(\mu_{ij})         &=      \log(E_{ij}) + \phi_{ij}\\
+\boldsymbol{\phi}_{1}|\boldsymbol{\phi}_{2} &\sim \mbox{Normal}(\boldsymbol{\delta}_{1},\boldsymbol{\Xi}_{1})\\
+\boldsymbol{\delta}_{1} &= \beta_{1}\boldsymbol{1} + (\eta_{0} \mathbf{I} + \eta_{1} \boldsymbol{W}) (\boldsymbol{\phi}_{2} - \beta_{2}\boldsymbol{1})\\
+\boldsymbol{\Xi}_{1}    &= \sigma_{1}^{2}(\boldsymbol{D} -\kappa_{1}\boldsymbol{W} )^{-1} \\
+\boldsymbol{\phi}_{2}   &\sim \mbox{Normal}(\boldsymbol{\delta}_{2},\boldsymbol{\Xi}_{2})\\
+\boldsymbol{\delta_{2}} &= \beta_{2}\mathbf{1}\\
+\boldsymbol{\Xi}_{2}    &= \sigma_{1}^{2}(\boldsymbol{D} -\kappa_{2}\boldsymbol{W})^{-1} \\
+\beta_{j}               &\sim \mbox{Normal}(0,100)\\
+\eta_{0},\eta_{1}       &\sim \mbox{Normal}(0,10)\\
+\sigma_{j}              &\sim \mbox{Uniform}(0,10)\\
+\kappa_{j}              &\sim \mbox{Uniform}(0,0.99)\\
+\boldsymbol{W}_{n \times n} &=
+\left\{
+\begin{array}{rl}
+w_{ij} = 1 & \mbox{if } i \sim j \\
+w_{ij} = 0 & \mbox{if } i = j    \\
+w_{ij} = 0 & \mbox{otherwise}   
+\end{array}
+\right.\\
+w_{i+}                      &=\sum_{j} w_{ij}\\
+\boldsymbol{D}_{n \times n} &=\mbox{diagonal}(w_{1+},\dots,w_{n+})\\
+\end{align*}
+
+where $\boldsymbol{\phi}_{j}$ are spatially structured random effects, $\boldsymbol{W}$ is the proximity matrix,
+$\boldsymbol{\phi}_{1}|\boldsymbol{\phi}_{2}$ is the conditional distribution of $\boldsymbol{\phi}_{1}$, and $\boldsymbol{\phi}_{2}$ is a marginal distribution. 
+
+\newpage
+
+\begin{thebibliography}{99}
+	
+	%%ZIKA SPECIFIC BIBLIOGRAPHY
+	
+%%	\bibitem{Lawson2013}
+%%	Lawson AB (2013).
+%%	Bayesian Disease Mapping: Hierarchical Modeling in Spatial Epidemiology, Second Edition
+%%	Chapman \& Hall/CRC Interdisciplinary Statistics. Boca Raton, Fl.
+%%	396 Pages.
+	
+	\bibitem{Banerjee2014}
+	Banerjee S, Carlin BP,  Gelfand AE (2014)
+	Hierarchical Modeling and Analysis for Spatial Data, Second Edition
+	Chapman \& Hall/CRC Monographs on Statistics \& Applied Probability. Boca Raton, Fl.
+	584 Pages.
+	
+	\bibitem{Ma2005}
+	Ma H and Carlin BP (2005)
+	Bayesian Multivariate Areal Wombling for Multiple Disease Boundary Analysis. Technical Report. School of Public Health, University of Minnesota. url: http://www.biostat.umn.edu/$\sim$brad/software/mc.pdf
+	
+	\bibitem{Jin2005}
+	Jin X, Bradley P. Carlin BP, and Banerjee S. 
+	Generalized Hierarchical Multivariate CAR Models for Areal Data.  
+	Biometrics. 2005; 61(4): 950-961.
+	
+	\bibitem{Besag1991}
+	Besag  J, York  J, Mollie  A.
+	Bayesian image restoration with two applications in spatial statistics.
+	Annals of the Institute of Statistical Mathematics. 1991; 43(1):1--59.
+	
+%	\bibitem{Lunn2009}
+%	Lunn D, Spiegelhalter D, Thomas A, Best N. The BUGS project: Evolution, critique, and future directions. Statistics in Medicine.  2009; 28: 3049--3067.
+	
+%	\bibitem{Spiegelhalter2002}
+%	Spiegelhalter DJ, Best NG, Carlin BP, van~der Linde A.
+%	Bayesian measures of model complexity and fit. Journal of Royal Statistical Society, Series B (Statistical Methodology). 2002;
+%	64: 583--639.
+	
+\end{thebibliography}
+
+\end{document}
