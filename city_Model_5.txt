@@ -1,3 +1,15 @@
+###########################################################################################
+# Joint estimation of relative risk of dengue and Zika infections
+# Journal of Emerging Infectious Diseases
+#
+# Model 5 - City level. WinBUGS 1.4 code, data, and initial values.
+#
+# Adapted from: 
+#
+# Ma H and Carlin BP (2005) Bayesian Multivariate Areal Wombling for Multiple Disease
+# Boundary Analysis. Technical Report. School of Public Health, University of Minnesota. 
+# url: http://www.biostat.umn.edu/∼brad/software/mc.pdf
+###########################################################################################
 
 model {
 	

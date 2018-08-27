@@ -1,3 +1,15 @@
+###########################################################################################
+# Joint estimation of relative risk of dengue and Zika infections
+# Journal of Emerging Infectious Diseases
+#
+# Model 8 - City level. WinBUGS 1.4 code, data, and initial values.
+#
+# Adapted from: 
+#
+# Jin X, Bradley P. Carlin BP, and Banerjee S. Generalized Hierarchical Multivariate CAR Models for Areal
+# Data. Biometrics. 2005; 61(4): 950-961.
+###########################################################################################
+
 model 
 {
 
